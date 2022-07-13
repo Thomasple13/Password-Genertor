@@ -45,26 +45,20 @@ let passwordGenerator = ()=>{
   console.log(ans)
 
   //Create string of potential characters
-  let lowerCharacters = 'abcdefghijklmnopqrstuvwxyz'
-  let upperCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  let numericCharacters = '1234567890'
-  let specialCharacters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+  const lowerCharacters = 'abcdefghijklmnopqrstuvwxyz'
+  const upperCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  const numericCharacters = '1234567890'
+  const specialCharacters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+  const characters = [lowerCharacters, upperCharacters, numericCharacters, specialCharacters]
   let potentialCharacters = ''
   let finalPassword = ''
 
-  if(ans.answer[0] === true){
-    potentialCharacters += lowerCharacters
+  for(let i = 0; i < ans.answer.length; i++){
+    if(ans.answer[i] === true){
+      potentialCharacters += characters[i]
+    }
   }
-  if(ans.answer[1] === true){
-    potentialCharacters += upperCharacters
-  }
-  if(ans.answer[2] === true){
-    potentialCharacters += numericCharacters
-  }
-  if(ans.answer[3] === true){
-    potentialCharacters += specialCharacters
-  }
-
+  
   console.log(potentialCharacters)
 
 //Loops through potential characters and picks random character to add to final password.
